@@ -41,13 +41,13 @@ function TempestNoGuildAnnounce:OnInitialize()
 	self:RegisterChatCommand("tnga", "SlashCommand")
 end
 
-function TempestNoGuildAnnounce:OnEnable()   
-        
+function TempestNoGuildAnnounce:OnEnable()
+	
     local guildChatEventHandler = function(self,event,msg, author, ...)
         local chatFilter = function(self, event, msg, author)
-            if self.IsEnabled then
-                if self.ShouldPrint then
-                   self:Print(msg) 
+            if TempestNoGuildAnnounce:IsEnabled() then
+                if TempestNoGuildAnnounce:ShouldPrint() then
+					TempestNoGuildAnnounce:Print(msg) 
                 end
                return true 
             end            
